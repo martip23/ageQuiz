@@ -3,9 +3,20 @@
 /*eslint-env es6*/
 /*global $, jQuery, document*/
 
-(function () {
+$(document).ready(function () {
     "use strict";
     
+    const quizImage     = document.getElementById("image");
+    const quizContainer = document.getElementById("quiz");
+    const startButton   = document.getElementById("startQuiz");
+    const submitButton  = document.getElementById("submit");
+    
+    const quizQuestions = [
+        {
+            question: "How old are you?"
+        }
+    ];
+        
     function buildSplash() {}
     
     function buildQuiz() {
@@ -29,7 +40,7 @@
         
         // push question and number dropdown to quizContainer
         output.push(
-        `<div class="question"> ${quizQuestions.question[0]} </div>
+        `<div class="question"> ${quizQuestions[0]} </div>
         <div class="answers"> ${answer.join('')} </div>`
         );
         
@@ -51,15 +62,4 @@
     TODO: Add share button for facebook.
     shareButton.addEventListener('click', share);
     */
-    
-    const quizImage     = document.getElementById("image");
-    const quizContainer = document.getElementById("quiz");
-    const startButton   = document.getElementById("startQuiz");
-    const submitButton  = document.getElementById("submit");
-    
-    const quizQuestions = [
-        {
-            question: "How old are you?"
-        }
-    ];
 });
