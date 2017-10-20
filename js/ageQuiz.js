@@ -13,21 +13,35 @@
         // to hold output HTML
         const output = [];
         
+        // hold answer
+        const answer = [];
+        
+        // add answer (in this case, one number list)
+        answer.push(`<select id="numberList">`);
+        for (var i=1;i<=100;i++) {
+            answer.push(`<option `);
+            answer.push(`val="` + i + `">` + i);
+            answer.push(`</option>`);
+        }
+        answer.push(`</select>`);
+        
+
+        
         // push question and number dropdown to quizContainer
         output.push(
-        `<div class="question"> ${currentQuestion.question} </div>
-        <div class="dropdown">
-            `
-        )
-            
+        `<div class="question"> ${quizQuestions.question[0]} </div>
+        <div class="answers"> ${answer.join('')} </div>`
+        );
+        
+        quizContainer.innerHTML = output.join('');
         }
         
-    }
     
     function showResult() {}
     
     // Show welcome screen
-    buildSplash();
+    // buildSplash();
+    buildQuiz();
     
     // Button listeners
     startButton.addEventListener('click', buildQuiz);
